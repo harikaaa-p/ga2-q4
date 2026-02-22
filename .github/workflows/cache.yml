@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache dependencies
+      - name: cache-step
         id: cache
         uses: actions/cache@v4
         with:
@@ -18,7 +18,4 @@ jobs:
           key: cache-860ebe2
 
       - name: prime-cache-860ebe2
-        run: |
-          echo "Cache hit? ${{ steps.cache.outputs.cache-hit }}"
-          mkdir -p ~/.cache-demo
-          echo "cached-data" > ~/.cache-demo/file.txt
+        run: echo "Cache hit? ${{ steps.cache.outputs.cache-hit }}"
